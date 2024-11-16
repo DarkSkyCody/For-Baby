@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Background Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://i.imgur.com/RQG5t41.jpeg');
+         background-repeat: repeat;  
+ background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .popup-window {
+            position: fixed;
+            top: 85%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            background-color: black;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            display: none;
+            z-index: 1000;
+        }
+        .popup-header {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .popup-body {
+            margin-bottom: 20px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .action-btn {
+            flex: 1;
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .action-btn:hover {
+            background-color: navy;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay" id="overlay"></div>
+    <div class="popup-window" id="popup">
+        <div class="popup-header" id="popup-header">Message</div>
+        <div class="popup-body" id="popup-body">
+            This is a customizable message.
+        </div>
+        <div class="button-container">
+            <button class="action-btn" id="option1-btn">Option 1</button>
+            <button class="action-btn" id="option2-btn">Option 2</button>
+        </div>
+    </div>
+
+    <script>
+        const messages = [
+            {
+                text: "I love you so much, You are my everything—amazing, perfect, and the brightest light in my life. Every moment with you fills my heart with joy and gratitude. I love you so much, more than words can ever capture. Thank you for being you—my anchor, my inspiration, my everything. Will you marry me and stay with me forever? <3",
+                option1: "YES",
+                option2: "YES",
+                action1: () => alert("You chose to stay with me forever!"),
+                action2: () => alert("You chose to stay with me forever as well!")
+            },
+            {
+                text: "You're now with me forever!",
+                option1: "Yay!",
+                option2: "Yay!",
+                action1: () => alert("I love you so much baby <3"),
+                action2: () => alert("You are perfect baby <3")
+            }
+        ];
+        
+        let currentMessageIndex = 0;
+        const popup = document.getElementById("popup");
+        const overlay = document.getElementById("overlay");
+        const popupBody = document.getElementById("popup-body");
+        const option1Btn = document.getElementById("option1-btn");
+        const option2Btn = document.getElementById("option2-btn");
+
+        function showPopup(message) {
+            popupBody.textContent = message.text;
+            option1Btn.textContent = message.option1;
+            option2Btn.textContent = message.option2;
+            option1Btn.onclick = () => {
+                message.action1();
+                closePopup();
+            };
+            option2Btn.onclick = () => {
+                message.action2();
+                closePopup();
+            };
+            overlay.style.display = "block";
+            popup.style.display = "block";
+        }
+
+        function closePopup() {
+            popup.style.display = "none";
+            overlay.style.display = "none";
+
+            // Schedule the next popup
+            setTimeout(() => {
+                currentMessageIndex = (currentMessageIndex + 1) % messages.length;
+                showPopup(messages[currentMessageIndex]);
+            }, 3000);
+        }
+
+        // Initial popup display
+        setTimeout(() => showPopup(messages[currentMessageIndex]), 1000);
+    </script>
+</body>
+</html>
