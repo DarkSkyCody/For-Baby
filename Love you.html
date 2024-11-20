@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Website</title>
+    <style>
+        /* Custom Background */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://i.imgur.com/DEYvBYi.jpeg'); /* Replace with your Imgur link */
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        /* Left and Right Picture Sections */
+        .side-section {
+            width: 20%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .side-section img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Center Section for Text */
+        .center-section {
+            width: 50%;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .center-section h1 {
+            margin-top: 0;
+        }
+
+        /* Popup Styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .popup h2 {
+            margin: 0 0 15px;
+        }
+
+        .popup button {
+            padding: 10px 20px;
+            background: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .popup button:hover {
+            background: navy;
+        }
+
+        /* Button at the Bottom */
+        .popup-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .popup-btn:hover {
+            background: navy;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Left Section -->
+        <div class="side-section">
+            <!-- Replace with your Imgur links -->
+            <img src="https://i.imgur.com/dhptpXB.jpeg" alt="Image 1">
+            <img src="https://i.imgur.com/3XEzzNG.jpeg" alt="Image 2">
+            <img src="https://i.imgur.com/aW7eUwb.jpeg" alt="Image 3">
+            <img src="https://i.imgur.com/LM35mrm.jpeg" alt="Image 4">
+            <img src="https://i.imgur.com/4MQ4snk.jpeg" alt="Image 5">
+        </div>
+
+        <!-- Center Section -->
+        <div class="center-section">
+            <h1>💖I love you so much baby💖</h1>
+            <p>Jordan, you know you're the love of my life, you make my days happier and I never thought I could be so happy with someone. Every day I wake up thinking about you and looking at you in the Discord call, you're the reason I get up in the morning and work for that we can live together. When we go to bed you're the last thing I see and the last thing I think about. You're the only one I wanna be around and never wanna miss. I can wait to wake up next to you, make food (that you might try for me) and just go to work with the knowledge I see you right back at home after. These are the moments I never dreamed of before but with you its so easy to imagine it. We go on walks, vacations, build Lego and cars. You make me the happiest person alive. 
+I used to be on Tik Tok for random shit, now I go on there to find cute and loving stuff that I can send you cause I mean every single one of them. I love you so much and wanna spend my life with you baby. I hope you know how much I love you, even tho I dont think I can write or show you all. You literally have my heart with you💖. </p>
+        </div>
+
+        <!-- Right Section -->
+        <div class="side-section">
+            <!-- Replace with your Imgur links -->
+            <img src="https://i.imgur.com/SyIa0FD.jpeg" alt="Image 6">
+            <img src="https://i.imgur.com/WSqp9Hs.jpeg" alt="Image 7">
+            <img src="https://i.imgur.com/TZTLP5g.jpeg" alt="Image 8">
+            <img src="https://i.imgur.com/LTaav0N.jpeg" alt="Image 9">
+            <img src="https://i.imgur.com/qb4CnD7.jpeg" alt="Image 10">
+        </div>
+    </div>
+
+    <!-- Button to Open Popup -->
+    <button class="popup-btn" onclick="openPopup()">Click Me!</button>
+
+    <!-- Popup Window -->
+    <div class="popup" id="popup">
+        <h2>❣️Dwi'n dy garu di❣️</h2>
+        <p>Wnei di fy mhriodi i? </p>
+        <button onclick="closePopup()">Yndw💖</button>
+    </div>
+
+    <script>
+        // Function to open popup
+        function openPopup() {
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        // Function to close popup
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
